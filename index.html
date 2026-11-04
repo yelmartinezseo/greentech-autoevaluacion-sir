@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Autoevaluación para el Registro SIR de la Comunitat Valenciana</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="sir-app" class="sir-wrapper" data-lang="">
+
+  <!-- Language selector -->
+  <div class="sir-lang-bar">
+    <button class="sir-lang-btn active" data-lang="es" title="Castellano">ES</button>
+    <button class="sir-lang-btn" data-lang="va" title="Valencià">VAL</button>
+    <button class="sir-lang-btn" data-lang="en" title="English">EN</button>
+  </div>
+
+  <!-- Header -->
+  <div class="sir-header">
+    <div class="sir-header-logo">
+      <svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18"/><path d="M20 8 L28 16 L24 16 L24 28 L16 28 L16 16 L12 16 Z"/></svg>
+    </div>
+    <div class="sir-header-text">
+      <h2 class="sir-title" data-i18n="plugin_title">Autodiagnóstico SIR</h2>
+      <p class="sir-subtitle" data-i18n="plugin_subtitle">Herramienta de apoyo para la autoevaluación del Registro de Entidades Valencianas Socialmente Responsables</p>
+      <span class="sir-badge" data-i18n="microenterprise">Microempresa (1-9 personas empleadas)</span>
+    </div>
+  </div>
+
+  <!-- Progress bar -->
+  <div class="sir-progress">
+    <div class="sir-progress-bar" id="sir-progress-bar"></div>
+    <div class="sir-progress-steps" id="sir-progress-steps"></div>
+  </div>
+
+  <!-- Form area -->
+  <div class="sir-form-area" id="sir-form-area">
+    <!-- Sections rendered by JS -->
+  </div>
+
+  <!-- Navigation -->
+  <div class="sir-nav">
+    <button class="sir-btn sir-btn-secondary" id="sir-btn-prev" data-i18n="prev">Anterior</button>
+    <div class="sir-nav-center">
+      <button class="sir-btn sir-btn-outline" id="sir-btn-save" data-i18n="save_progress">Guardar progreso</button>
+    </div>
+    <button class="sir-btn sir-btn-primary" id="sir-btn-next" data-i18n="next">Siguiente</button>
+  </div>
+
+  <!-- Results panel (hidden until calculated) -->
+  <div class="sir-results" id="sir-results" style="display:none;">
+    <div class="sir-results-header" id="sir-results-header"></div>
+    <div class="sir-results-dimensions" id="sir-results-dimensions"></div>
+    <div class="sir-results-indicators" id="sir-results-indicators"></div>
+
+    <div class="sir-results-actions">
+      <button class="sir-btn sir-btn-primary" id="sir-btn-export">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        <span data-i18n="export">Descargar informe</span>
+      </button>
+      <button class="sir-btn sir-btn-secondary" id="sir-btn-recalc" data-i18n="recalculate">Recalcular</button>
+    </div>
+
+    <!-- Useful links -->
+    <div class="sir-links">
+      <a href="https://sede.gva.es/es/detall-tramit?id_proc=22976" target="_blank" rel="noopener noreferrer" class="sir-link-card">
+        <span class="sir-link-icon">GVA</span>
+        <span data-i18n="start_process">Iniciar trámite telemático</span>
+      </a>
+      <a href="https://hisenda.gva.es/es/web/economia/registre-entitats-valencianes-socialment-responsables" target="_blank" rel="noopener noreferrer" class="sir-link-card">
+        <span class="sir-link-icon">SIR</span>
+        <span data-i18n="official_link">Web oficial del Registro SIR</span>
+      </a>
+      <a href="https://sede.registradores.org/sede/sede-corpme-web/registro-mercantil/publicidad/informe-posicion-riesgo" target="_blank" rel="noopener noreferrer" class="sir-link-card">
+        <span class="sir-link-icon">RM</span>
+        <span data-i18n="registry_link">Registro Mercantil</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="sir-save-toast" id="sir-save-toast">Progreso guardado en este navegador</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,617 @@
+/**
+ * SIR Autodiagnostico — Frontend Styles v2.0
+ * All rules scoped under #sir-app for theme override
+ */
+
+/* === VARIABLES === */
+#sir-app {
+    --sir-bg: #1a1830;
+    --sir-surface: #211f3a;
+    --sir-surface2: #272547;
+    --sir-border: #4a4872;
+    --sir-accent: #ffde59;
+    --sir-accent-hover: #e6c840;
+    --sir-text: #ffffff;
+    --sir-text-muted: #b0aec8;
+    --sir-success: #61CE70;
+    --sir-warning: #ffde59;
+    --sir-danger: #f87171;
+    --sir-social: #60a5fa;
+    --sir-etico: #c084fc;
+    --sir-ambiental: #4ade80;
+    --sir-economico: #fb923c;
+    --sir-radius: 12px;
+    --sir-shadow: 0 1px 3px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.15);
+    --sir-shadow-lg: 0 4px 20px rgba(0,0,0,0.3);
+    --sir-font: 'Inter', 'Outfit', system-ui, -apple-system, sans-serif;
+}
+
+/* === RESET inside #sir-app === */
+#sir-app *,
+#sir-app *::before,
+#sir-app *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* === WRAPPER === */
+#sir-app.sir-wrapper {
+    font-family: var(--sir-font);
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 24px;
+    color: var(--sir-text);
+    line-height: 1.6;
+    background: transparent;
+}
+
+/* === LANGUAGE BAR === */
+#sir-app .sir-lang-bar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2px;
+    margin-bottom: 16px;
+    background: var(--sir-surface);
+    border: 1px solid var(--sir-border);
+    border-radius: 6px;
+    padding: 3px;
+    width: fit-content;
+    margin-left: auto;
+}
+#sir-app .sir-lang-btn {
+    padding: 3px 9px;
+    border: none;
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 600;
+    font-family: var(--sir-font);
+    letter-spacing: 0.05em;
+    color: var(--sir-text-muted);
+    transition: all 0.15s;
+    line-height: 1.4;
+    text-transform: none;
+    text-decoration: none;
+    box-shadow: none;
+    outline: none;
+    min-width: auto;
+    display: inline-block;
+}
+#sir-app .sir-lang-btn:hover { color: var(--sir-text); background: transparent; }
+#sir-app .sir-lang-btn.active {
+    background: var(--sir-accent);
+    color: #0d0c1a;
+}
+
+/* === HEADER === */
+#sir-app .sir-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px;
+    background: var(--sir-surface);
+    border: 1px solid var(--sir-border);
+    border-radius: var(--sir-radius);
+    color: var(--sir-text);
+    margin-bottom: 24px;
+}
+#sir-app .sir-header-logo svg { flex-shrink: 0; }
+#sir-app .sir-header-logo svg circle { fill: rgba(255,222,89,0.15); }
+#sir-app .sir-header-logo svg path { fill: var(--sir-accent); }
+#sir-app .sir-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    letter-spacing: -0.3px;
+    color: var(--sir-text);
+    line-height: 1.3;
+    padding: 0;
+    border: none;
+    background: none;
+}
+#sir-app .sir-title span { color: var(--sir-accent); }
+#sir-app .sir-subtitle {
+    font-size: 13px;
+    color: var(--sir-text-muted);
+    margin: 0 0 8px;
+    font-weight: 300;
+    line-height: 1.5;
+}
+#sir-app .sir-badge {
+    display: inline-block;
+    padding: 3px 12px;
+    background: rgba(255,222,89,0.12);
+    border: 1px solid rgba(255,222,89,0.25);
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--sir-accent);
+}
+
+/* === PROGRESS === */
+#sir-app .sir-progress {
+    position: relative;
+    margin-bottom: 24px;
+    background: var(--sir-border);
+    border-radius: 20px;
+    height: 6px;
+    overflow: visible;
+}
+#sir-app .sir-progress-bar {
+    height: 100%;
+    background: var(--sir-accent);
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+#sir-app .sir-progress-steps {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: -12px;
+    left: 0;
+    right: 0;
+}
+#sir-app .sir-step {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--sir-surface);
+    border: 2px solid var(--sir-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    padding: 0;
+}
+#sir-app .sir-step-num {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--sir-text-muted);
+}
+#sir-app .sir-step.active {
+    border-color: var(--sir-accent);
+    background: var(--sir-accent);
+    transform: scale(1.2);
+    box-shadow: 0 0 0 4px rgba(255,222,89,0.2);
+}
+#sir-app .sir-step.active .sir-step-num { color: #0d0c1a; }
+#sir-app .sir-step.completed {
+    border-color: var(--sir-accent);
+    background: var(--sir-accent-hover);
+}
+#sir-app .sir-step.completed .sir-step-num { color: #0d0c1a; }
+
+/* === SECTIONS === */
+#sir-app .sir-section {
+    background: var(--sir-surface);
+    border: 1px solid var(--sir-border);
+    border-radius: var(--sir-radius);
+    box-shadow: var(--sir-shadow);
+    overflow: hidden;
+    animation: sirSlideIn 0.3s ease;
+}
+@keyframes sirSlideIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+#sir-app .sir-section-header {
+    padding: 20px 24px;
+    border-left: 4px solid var(--sir-accent);
+    background: var(--sir-surface2);
+}
+#sir-app .sir-section-step {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--sir-text-muted);
+    margin-bottom: 4px;
+}
+#sir-app .sir-section-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    letter-spacing: -0.3px;
+    color: var(--sir-text);
+    padding: 0;
+    border: none;
+    background: none;
+}
+#sir-app .sir-dim-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    color: #0d0c1a;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* === DOC BOX === */
+#sir-app .sir-doc-box {
+    margin: 0 24px 16px;
+    padding: 14px 16px;
+    background: rgba(255,222,89,0.06);
+    border-radius: 8px;
+    border-left: 3px solid var(--sir-accent);
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--sir-text);
+}
+#sir-app .sir-doc-box strong { color: var(--sir-accent); }
+#sir-app .sir-doc-box p { margin: 4px 0 0; color: var(--sir-text-muted); }
+
+/* === FIELDS === */
+#sir-app .sir-fields {
+    padding: 16px 24px 24px;
+    display: grid;
+    gap: 16px;
+}
+#sir-app .sir-field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--sir-text);
+}
+#sir-app .sir-req { color: var(--sir-danger); margin-left: 2px; }
+#sir-app .sir-computed {
+    display: inline-block;
+    padding: 1px 8px;
+    background: rgba(255,222,89,0.12);
+    color: var(--sir-accent);
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 500;
+    margin-left: 6px;
+}
+#sir-app .sir-help {
+    font-size: 12px;
+    color: var(--sir-text-muted);
+    margin-bottom: 6px;
+    padding: 6px 10px;
+    background: var(--sir-surface2);
+    border-radius: 6px;
+    border-left: 2px solid var(--sir-accent-hover);
+}
+#sir-app .sir-input,
+#sir-app input[type="text"],
+#sir-app input[type="number"],
+#sir-app input[type="email"],
+#sir-app input[type="tel"],
+#sir-app select,
+#sir-app textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--sir-border);
+    border-radius: 8px;
+    font-family: var(--sir-font);
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: var(--sir-bg) !important;
+    color: var(--sir-text) !important;
+    box-sizing: border-box;
+    line-height: 1.4;
+    -webkit-appearance: none;
+}
+#sir-app .sir-input:focus,
+#sir-app input:focus,
+#sir-app select:focus,
+#sir-app textarea:focus {
+    outline: none;
+    border-color: var(--sir-accent);
+    box-shadow: 0 0 0 3px rgba(255,222,89,0.12);
+}
+#sir-app .sir-input::placeholder,
+#sir-app input::placeholder,
+#sir-app textarea::placeholder { color: var(--sir-text-muted); }
+#sir-app .sir-input[readonly] {
+    background: rgba(255,222,89,0.06) !important;
+    color: var(--sir-accent) !important;
+    font-weight: 600;
+}
+#sir-app .sir-select,
+#sir-app select.sir-select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23b0aec8' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 12px center !important;
+    padding-right: 36px;
+}
+#sir-app select option {
+    background: var(--sir-surface);
+    color: var(--sir-text);
+}
+#sir-app .sir-textarea,
+#sir-app textarea.sir-textarea {
+    resize: vertical;
+    min-height: 70px;
+}
+#sir-app .sir-indicator-tags {
+    margin-top: 4px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+#sir-app .sir-indicator-tag {
+    display: inline-block;
+    padding: 1px 8px;
+    background: var(--sir-surface2);
+    color: var(--sir-text-muted);
+    border-radius: 10px;
+    font-size: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+}
+#sir-app .sir-field-computed { opacity: 0.85; }
+
+/* === NAVIGATION === */
+#sir-app .sir-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    gap: 12px;
+}
+#sir-app .sir-nav-center { flex: 1; text-align: center; }
+#sir-app .sir-btn {
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-family: var(--sir-font);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1.4;
+    text-decoration: none;
+    text-transform: none;
+    letter-spacing: normal;
+    box-shadow: none;
+}
+#sir-app .sir-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+#sir-app .sir-btn-primary {
+    background: var(--sir-accent) !important;
+    color: #0d0c1a !important;
+}
+#sir-app .sir-btn-primary:hover:not(:disabled) {
+    background: var(--sir-accent-hover) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(255,222,89,0.20);
+}
+#sir-app .sir-btn-secondary {
+    background: var(--sir-surface2) !important;
+    color: var(--sir-text) !important;
+    border: 1px solid var(--sir-border) !important;
+}
+#sir-app .sir-btn-secondary:hover:not(:disabled) {
+    background: var(--sir-surface) !important;
+    border-color: var(--sir-accent) !important;
+}
+#sir-app .sir-btn-outline {
+    background: transparent !important;
+    border: 1px solid var(--sir-border) !important;
+    color: #2d2b4a !important;
+    font-size: 12px;
+    padding: 8px 16px;
+}
+#sir-app .sir-btn-outline:hover {
+    border-color: var(--sir-accent) !important;
+    color: var(--sir-accent) !important;
+}
+#sir-app .sir-btn-calculate {
+    background: var(--sir-accent) !important;
+    color: #0d0c1a !important;
+}
+#sir-app .sir-btn-calculate:hover:not(:disabled) {
+    background: var(--sir-accent-hover) !important;
+}
+
+/* === RESULTS === */
+#sir-app .sir-results { animation: sirSlideIn 0.4s ease; }
+#sir-app .sir-results-header { text-align: center; margin-bottom: 32px; }
+#sir-app .sir-result-badge {
+    display: inline-block;
+    padding: 16px 32px;
+    border-radius: var(--sir-radius);
+    font-size: 18px;
+    font-weight: 700;
+    color: #0d0c1a;
+    letter-spacing: -0.3px;
+}
+#sir-app .sir-pass { background: var(--sir-success); }
+#sir-app .sir-fail { background: var(--sir-danger); color: #fff; }
+#sir-app .sir-result-score { margin-top: 16px; }
+#sir-app .sir-score-big { font-size: 48px; font-weight: 700; color: var(--sir-text); }
+#sir-app .sir-score-max { font-size: 24px; color: var(--sir-text-muted); font-weight: 300; }
+#sir-app .sir-score-pct { font-size: 18px; color: var(--sir-text-muted); margin-left: 8px; }
+#sir-app .sir-etc-info {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--sir-text-muted);
+}
+
+/* === DIMENSION CARDS === */
+#sir-app .sir-dims-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+}
+#sir-app .sir-dim-card {
+    background: var(--sir-surface);
+    border-radius: var(--sir-radius);
+    padding: 16px;
+    box-shadow: var(--sir-shadow);
+    border: 1px solid var(--sir-border);
+    transition: transform 0.2s;
+}
+#sir-app .sir-dim-card:hover { transform: translateY(-2px); box-shadow: var(--sir-shadow-lg); }
+#sir-app .sir-dim-fail { border-color: var(--sir-danger); background: rgba(248,113,113,0.06); }
+#sir-app .sir-dim-name { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
+#sir-app .sir-dim-score { font-size: 24px; font-weight: 700; margin-bottom: 8px; color: var(--sir-text); }
+#sir-app .sir-dim-bar-wrap {
+    position: relative;
+    height: 8px;
+    background: var(--sir-surface2);
+    border-radius: 8px;
+    overflow: visible;
+    margin-bottom: 8px;
+}
+#sir-app .sir-dim-bar { height: 100%; border-radius: 8px; transition: width 0.6s ease; }
+#sir-app .sir-dim-min-line {
+    position: absolute;
+    top: -4px;
+    width: 2px;
+    height: 16px;
+    background: var(--sir-danger);
+    border-radius: 1px;
+}
+#sir-app .sir-dim-status { font-size: 12px; color: var(--sir-text-muted); }
+
+/* === INDICATORS TABLE === */
+#sir-app .sir-indicators-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    background: var(--sir-surface);
+    border-radius: var(--sir-radius);
+    overflow: hidden;
+    box-shadow: var(--sir-shadow);
+    margin-bottom: 24px;
+}
+#sir-app .sir-indicators-table th {
+    background: var(--sir-surface2);
+    color: var(--sir-accent);
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+#sir-app .sir-indicators-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--sir-border);
+    color: var(--sir-text);
+}
+#sir-app .sir-indicators-table tr:hover td { background: var(--sir-surface2); }
+#sir-app .sir-code-cell {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--sir-accent);
+}
+#sir-app .sir-mono { font-family: 'JetBrains Mono', monospace; font-size: 12px; text-align: right; }
+#sir-app .sir-center { text-align: center; }
+#sir-app .sir-dim-row td { font-size: 12px; }
+#sir-app .sir-row-zero td { opacity: 0.5; }
+
+#sir-app .sir-points-bar {
+    position: relative;
+    height: 22px;
+    background: var(--sir-surface2);
+    border-radius: 6px;
+    overflow: hidden;
+    min-width: 80px;
+}
+#sir-app .sir-points-fill {
+    height: 100%;
+    background: var(--sir-accent-hover);
+    border-radius: 6px;
+    transition: width 0.4s;
+}
+#sir-app .sir-points-bar span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--sir-text);
+}
+
+/* === RESULTS ACTIONS === */
+#sir-app .sir-results-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 24px 0;
+}
+
+/* === LINKS === */
+#sir-app .sir-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+}
+#sir-app .sir-link-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px;
+    background: var(--sir-surface);
+    border: 1px solid var(--sir-border);
+    border-radius: var(--sir-radius);
+    text-decoration: none;
+    color: var(--sir-text);
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+#sir-app .sir-link-card:hover {
+    border-color: var(--sir-accent);
+    box-shadow: var(--sir-shadow);
+    transform: translateY(-2px);
+    color: var(--sir-text);
+    text-decoration: none;
+}
+#sir-app .sir-link-icon {
+    font-size: 11px;
+    color: var(--sir-accent);
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* === SAVE TOAST === */
+#sir-app .sir-save-toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--sir-surface);
+    border: 1px solid var(--sir-accent);
+    color: var(--sir-accent);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    z-index: 9999;
+    white-space: nowrap;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#sir-app .sir-save-toast.show { transform: translateX(-50%) translateY(0); }
+
+/* === RESPONSIVE === */
+@media (max-width: 640px) {
+    #sir-app.sir-wrapper { padding: 12px; }
+    #sir-app .sir-header { flex-direction: column; text-align: center; padding: 16px; }
+    #sir-app .sir-title { font-size: 18px; }
+    #sir-app .sir-dims-grid { grid-template-columns: 1fr; }
+    #sir-app .sir-links { grid-template-columns: 1fr; }
+    #sir-app .sir-nav { flex-wrap: wrap; }
+    #sir-app .sir-nav-center { order: 3; width: 100%; margin-top: 8px; }
+    #sir-app .sir-indicators-table { font-size: 11px; }
+    #sir-app .sir-indicators-table th, #sir-app .sir-indicators-table td { padding: 6px 8px; }
+    #sir-app .sir-score-big { font-size: 36px; }
+    #sir-app .sir-progress-steps { display: none; }
+}
