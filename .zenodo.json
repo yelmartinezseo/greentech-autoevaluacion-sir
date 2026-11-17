@@ -1,0 +1,33 @@
+{
+  "title": "Autoevaluación para el Registro SIR de la Comunitat Valenciana",
+  "upload_type": "software",
+  "description": "Autoevaluación para microempresas de 1 a 9 personas empleadas: calcula una puntuación por módulo sobre 31 indicadores ESG del Decreto 200/2022 de la Comunitat Valenciana y genera un informe descargable, en castellano, valenciano e inglés.",
+  "creators": [
+    {
+      "name": "Martínez, Yel",
+      "orcid": "0009-0003-0219-7265"
+    }
+  ],
+  "license": "gpl-2.0-or-later",
+  "keywords": [
+    "Registro SIR",
+    "Comunitat Valenciana",
+    "ESG",
+    "microempresas",
+    "responsabilidad social"
+  ],
+  "language": "spa",
+  "related_identifiers": [
+    {
+      "identifier": "https://yel-martinez-portfolio.com/recursos/autoevaluacion-para-el-registro-sir-de-la-comunitat-valenciana/",
+      "relation": "isDocumentedBy",
+      "resource_type": "publication-other",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://github.com/yelmartinezseo/greentech-autoevaluacion-sir",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}
