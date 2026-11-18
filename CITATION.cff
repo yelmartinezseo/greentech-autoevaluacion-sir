@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "Si usas este software, cítalo con estos metadatos. El DOI apunta siempre a la versión más reciente."
+type: software
+title: "Autoevaluación para el Registro SIR de la Comunitat Valenciana"
+abstract: "Autoevaluación gratuita del Registro SIR para microempresas (1-9 personas) de la Comunitat Valenciana. Calcula tu puntuación por módulo y descarga el informe."
+authors:
+  - family-names: "Martínez"
+    given-names: "Yel"
+    alias: "yelmartinezseo"
+    affiliation: "Greentech"
+    website: "https://yel-martinez-portfolio.com"
+    orcid: "https://orcid.org/0009-0003-0219-7265"
+doi: "10.5281/zenodo.24310487"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.24310487"
+    description: "DOI de concepto en Zenodo (todas las versiones)"
+license: GPL-2.0-or-later
+repository-code: "https://github.com/yelmartinezseo/greentech-autoevaluacion-sir"
+url: "https://yel-martinez-portfolio.com/recursos/autoevaluacion-para-el-registro-sir-de-la-comunitat-valenciana/"
+keywords:
+  - "ESG"
+  - "RSE"
+  - "microempresas"
+  - "Comunitat Valenciana"
+  - "Greentech"
+  - "open source"
